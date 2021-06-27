@@ -25,7 +25,7 @@ http://hadoop76:9870/explorer.html
 
 查看任务和日志
 http://hadoop77:8088/cluster
-
+yy
 
 
 111
