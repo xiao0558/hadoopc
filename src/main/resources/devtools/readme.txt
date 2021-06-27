@@ -27,5 +27,5 @@ http://hadoop76:9870/explorer.html
 http://hadoop77:8088/cluster
 yy
 
-
+1
 111
