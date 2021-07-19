@@ -1,4 +1,4 @@
-package com.demo.hadoop.data;
+package com.demo.hadoop.part;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class DataMapper extends Mapper<LongWritable, Text, Text, DataBean> {
 	protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		// 1 获取一行
 		// mapper输入：索引值，文本 
-		// key:0,value:  1,路口1,51,31,71,41,2021-06-24 01:00:00
+		// key:0,value:1,路口1,51,31,71,41,2021-06-24 01:00:00
 		String line = value.toString();
 		// 2 切割
 		String[] words = line.split(",");
@@ -27,7 +27,7 @@ public class DataMapper extends Mapper<LongWritable, Text, Text, DataBean> {
 		long west2eastFlow = Long.parseLong(words[4]); // 西到东流量
 		long north2southFlow = Long.parseLong(words[5]); // 北到南流量
 		long totalFlow = east2westFlow + south2northFlow + west2eastFlow + north2southFlow; // 总合
-		
+				
 		// 4 输出
 		k.set(crossName);
 		v.setEast2westFlow(east2westFlow);

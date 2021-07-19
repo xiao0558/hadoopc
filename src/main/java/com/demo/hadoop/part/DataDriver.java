@@ -1,4 +1,4 @@
-package com.demo.hadoop.data;
+package com.demo.hadoop.part;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -31,6 +31,10 @@ public class DataDriver {
 		// 5 设置Reducer输出 kv 类型
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(DataBean.class);
+		
+		// 配置自定义分区类
+		job.setPartitionerClass(DataPart.class);
+		job.setNumReduceTasks(3); // 必须与自定义分区类中的数量一致
 		
 		// 6 设置输入和输出路径
 		FileInputFormat.setInputPaths(job, new Path("hdfs://hadoop161:8020/hadoopc_input"));
